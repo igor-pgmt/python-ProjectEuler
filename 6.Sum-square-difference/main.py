@@ -25,5 +25,12 @@ def diff1(k):
 def diff2(k):
 	return sum(range(1, k+1)) ** 2 - sum([i ** 2 for i in range(1, k+1)])
 
+# This is the fastest function
+def diff3(k):
+    sum1 = k*(k + 1)/2
+    sum2 = (2*k + 1)*(k + 1)*k/6
+    return int(sum1**2-sum2)
+
 print(diff1(10), diff1(100))
 print(diff2(10), diff2(100))
+print(diff3(10), diff3(100))
