@@ -2,20 +2,19 @@ import math
 import time
 
 def getPrimeNumbers(num):
-	primeNumbers = [1, 2, 3, 5, 7]
+	primeNumbers = [2, 3, 5, 7]
 	endings = [1, 3, 7, 9]
 	currentNum = 0
 	i = 1
-	while len(primeNumbers) < num:
+	while currentNum < num:
 		for ending in endings:
 			currentNum = ConcatINT(i, ending)
+			if currentNum >= num:
+				break
 			if shortCheckPrimeNumbers(currentNum, primeNumbers):
 				primeNumbers.append(currentNum)
-				if len(primeNumbers) >= num:
-					break
 		i+=1
 	return primeNumbers
-
 
 def shortCheckPrimeNumbers(num, primes):
 	sqrt = math.sqrt(num)
@@ -33,5 +32,5 @@ def ConcatINT(a,b):
 
 def CheckTime(f, num):
 	start = time.time()
-	f(num)
-	return time.time()-start
+	result = f(num)
+	return result, time.time()-start
